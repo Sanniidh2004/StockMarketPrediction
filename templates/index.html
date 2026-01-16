@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Prediction</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+
+<h2>Stock Market Prediction System</h2>
+
+<form action="/predict" method="POST">
+
+    <select name="company" required>
+        <option value="">-- Select Company --</option>
+        <option value="apple">Apple</option>
+        <option value="microsoft">Microsoft</option>
+        <option value="google">Google</option>
+        <option value="tesla">Tesla</option>
+        <option value="zomato">Zomato</option>
+    </select>
+
+    <br><br>
+
+    <select name="model" required>
+        <option value="">-- Select Model --</option>
+        <option value="linear">Linear Regression</option>
+        <option value="lstm">LSTM</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Predict</button>
+</form>
+
+<br>
+
+{% if chart %}
+    <img src="{{ url_for('static', filename=chart) }}" width="700">
+{% endif %}
+
+{% if prediction %}
+    <h3>{{ prediction }}</h3>
+{% endif %}
+
+</body>
+</html>
+
+
